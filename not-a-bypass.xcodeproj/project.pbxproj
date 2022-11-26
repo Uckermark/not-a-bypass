@@ -17,7 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0A93175C2932BF08002B3AF8 /* not-a-bypass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "not-a-bypass.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A93175C2932BF08002B3AF8 /* Not a bypass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Not a bypass.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A93175F2932BF08002B3AF8 /* not_a_bypassApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = not_a_bypassApp.swift; sourceTree = "<group>"; };
 		0A9317612932BF08002B3AF8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0A9317632932BF0E002B3AF8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -50,7 +50,7 @@
 		0A93175D2932BF08002B3AF8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0A93175C2932BF08002B3AF8 /* not-a-bypass.app */,
+				0A93175C2932BF08002B3AF8 /* Not a bypass.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,7 +95,7 @@
 			);
 			name = "not-a-bypass";
 			productName = "not-a-bypass";
-			productReference = 0A93175C2932BF08002B3AF8 /* not-a-bypass.app */;
+			productReference = 0A93175C2932BF08002B3AF8 /* Not a bypass.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -299,7 +299,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.uckermark.not-a-bypass";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Not a bypass";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "not-a-bypass/not-a-bypass-BridgingHeader.h";
 				SWIFT_VERSION = 5.0;
@@ -333,7 +333,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.uckermark.not-a-bypass";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Not a bypass";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "not-a-bypass/not-a-bypass-BridgingHeader.h";
 				SWIFT_VERSION = 5.0;

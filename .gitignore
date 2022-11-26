@@ -29,6 +29,7 @@ DerivedData/
 *.ipa
 *.dSYM.zip
 *.dSYM
+not-a-bypass/Required/substitute.deb
 
 ## Playgrounds
 timeline.xctimeline

@@ -2,8 +2,7 @@ TARGET_CODESIGN = $(shell which ldid)
 
 WRTMP = $(TMPDIR)/bypass
 WR_STAGE_DIR = $(WRTMP)/stage
-WR_APP_DIR 	= $(WRTMP)/Build/Products/Release-iphoneos/not-a-bypass.app
-
+WR_APP_DIR = $(WRTMP)"/Build/Products/Release-iphoneos/Not a bypass.app"
 package:
 	@./getsubstitute.sh
 
@@ -14,20 +13,20 @@ package:
 	@rm -rf Payload
 	@rm -rf $(WR_STAGE_DIR)/
 	@mkdir -p $(WR_STAGE_DIR)/Payload
-	@mv $(WR_APP_DIR) $(WR_STAGE_DIR)/Payload/not-a-bypass.app
+	@mv $(WR_APP_DIR) "$(WR_STAGE_DIR)/Payload/Not a bypass.app"
 
 	@echo $(WRTMP)
 	@echo $(WR_STAGE_DIR)
 
 	@ls $(WR_HELPER_PATH)
 	@ls $(WR_STAGE_DIR)
-	@$(TARGET_CODESIGN) -Sentitlements.xml $(WR_STAGE_DIR)/Payload/not-a-bypass.app/
+	@$(TARGET_CODESIGN) -Sentitlements.xml "$(WR_STAGE_DIR)/Payload/Not a bypass.app/"
 	
-	@rm -rf $(WR_STAGE_DIR)/Payload/weedra1n.app/_CodeSignature
+	@rm -rf "$(WR_STAGE_DIR)/Payload/Not a bypass.app/_CodeSignature"
 
 	@ln -sf $(WR_STAGE_DIR)/Payload Payload
 
 	@rm -rf packages
 	@mkdir -p packages
 
-	@zip -r9 packages/not-a-bypass.ipa Payload
+	@zip -r9 "packages/Not a bypass.ipa" Payload
