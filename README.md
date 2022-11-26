@@ -1,2 +1,2 @@
 # not-a-bypass
-Not a jailbreak bypass
+but it removes substitute temporary
