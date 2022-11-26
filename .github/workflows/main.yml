@@ -1,0 +1,21 @@
+name: build
+
+on:
+  push:
+    branches: [ "main" ]
+    
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+     - uses: actions/checkout@v3
+     - name: Install Dependecies
+       run: brew install ldid
+     - name: Compile
+       run: make
+     
+     - name: Upload artifact
+       uses: actions/upload-artifact@v3
+       with:
+        name: weedra1n
+        path: packages/not-a-bypass.ipa
