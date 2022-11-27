@@ -19,7 +19,6 @@ class Controller: ObservableObject {
         
         DispatchQueue.global(qos: .utility).async {
             let ret = spawn(command: "/usr/bin/dpkg", args: ["-i", dummy], root: true)
-            spawn(command: "/usr/bin/touch", args: ["/.dummy"], root: true)
             spawn(command: "/usr/bin/sbreload", args: [], root: true)
             DispatchQueue.main.async {
                 self.addToLog(msg: ret.1)
@@ -35,7 +34,6 @@ class Controller: ObservableObject {
         
         DispatchQueue.global(qos: .utility).async {
             let ret = spawn(command: "/usr/bin/dpkg", args: ["-i", substitute], root: true)
-            spawn(command: "/usr/bin/rm", args: ["-f", "/.dummy"], root: true)
             spawn(command: "/usr/bin/sbreload", args: [], root: true)
             DispatchQueue.main.async {
                 self.addToLog(msg: ret.1)

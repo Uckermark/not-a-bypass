@@ -14,7 +14,7 @@ struct ContentView: View {
             .font(.subheadline)
             .multilineTextAlignment(.center)
         Spacer()
-        if !FileManager().fileExists(atPath: "/.dummy") {
+        if !FileManager().fileExists(atPath: "/var/jb/.no-substitute") {
             Button("bypass", action: controller.installDummy)
                 .padding()
                 .foregroundColor(.white)
