@@ -16,7 +16,7 @@ class Controller: ObservableObject {
             addToLog(msg: "Could not find dummy deb")
             return
         }
-        
+        isWorking = true
         DispatchQueue.global(qos: .utility).async {
             let ret = spawn(command: "/usr/bin/dpkg", args: ["-i", dummy], root: true)
             spawn(command: "/usr/bin/sbreload", args: [], root: true)
@@ -31,7 +31,7 @@ class Controller: ObservableObject {
             addToLog(msg: "Could not find dummy deb")
             return
         }
-        
+        isWorking = true
         DispatchQueue.global(qos: .utility).async {
             let ret = spawn(command: "/usr/bin/dpkg", args: ["-i", substitute], root: true)
             spawn(command: "/usr/bin/sbreload", args: [], root: true)

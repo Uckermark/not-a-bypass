@@ -11,10 +11,18 @@ struct ContentView: View {
     var controller: Controller
     var body: some View {
         Text("Not a bypass™")
-            .font(.subheadline)
+            .padding()
+            .font(.headline)
             .multilineTextAlignment(.center)
         Spacer()
-        if !FileManager().fileExists(atPath: "/var/jb/.no-substitute") {
+        if controller.isWorking {
+            Button("Please wait...", action: { controller.addToLog(msg: "") })
+                .padding()
+                .foregroundColor(.white)
+                .background(Color(red: 0, green: 0.235, blue: 0.49))
+                .cornerRadius(10)
+                .disabled(true)
+        } else if !FileManager().fileExists(atPath: "/var/jb/.no-substitute") {
             Button("bypass", action: controller.installDummy)
                 .padding()
                 .foregroundColor(.white)
