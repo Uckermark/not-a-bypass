@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    var controller: Controller
+    @ObservedObject var controller: Controller
+    
     var body: some View {
         Text("Not a bypass™")
             .padding()
