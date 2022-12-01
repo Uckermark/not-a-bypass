@@ -13,12 +13,8 @@ jobs:
        run: brew install ldid
      - name: Compile
        run: make
-     - name: pack deb package
-       run: ./build_nightly_deb.sh
-     - name: Upload deb
+     - name: Upload ipa
        uses: actions/upload-artifact@v3
        with:
         name: not-a-bypass
-        path: |
-         packages/Not a bypass.ipa
-         not-a-bypass.deb
+        path: packages/Not a bypass.ipa
