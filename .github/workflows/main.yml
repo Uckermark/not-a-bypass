@@ -13,21 +13,12 @@ jobs:
        run: brew install ldid
      - name: Compile
        run: make
-     
-     - name: Upload artifact
+     - name: pack deb package
+       run: ./build_nightly_deb.sh
+     - name: Upload deb
        uses: actions/upload-artifact@v3
        with:
         name: not-a-bypass
-        path: packages/Not a bypass.ipa
-     - name: pack deb package
-       run: ./build_nightly_deb.sh
-     - name: Upload artifact
-       uses: cpina/github-action-push-to-another-repository@main
-       env: 
-        SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
-       with:
-        source-directory: 'not-a-bypass-nightly.deb'
-        destination-github-username: 'Uckermark'
-        destination-repository-name: 'uckermark.github.io'
-        user-email: git@uckermark.tk
-        target-branch: main
+        path: |
+         packages/Not a bypass.ipa
+         not-a-bypass.deb
