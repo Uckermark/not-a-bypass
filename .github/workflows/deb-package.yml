@@ -24,4 +24,5 @@ jobs:
         destination-github-username: 'Uckermark'
         destination-repository-name: 'uckermark.github.io'
         user-email: git@uckermark.tk
-        target-branch: main
+        target-directory: 'repo/debs/'
+        target-branch: master
