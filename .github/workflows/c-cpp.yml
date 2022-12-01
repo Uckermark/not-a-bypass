@@ -1,0 +1,26 @@
+name: build nightly deb
+
+on:
+  workflow_dispatch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: download ipa
+      run: wget https://nightly.link/Uckermark/not-a-bypass/workflows/main/main/not-a-bypass.zip?h=f0629a50cb35e5d42891f511bc0fec0188e28ae4 -o not-a-bypass.zip
+        unzip not-a-bypass.zip
+    - name: pack deb package
+      run: ./build_nightly_deb.sh
+    - name: Upload artifact
+      uses: cpina/github-action-push-to-another-repository@main
+      env: 
+        SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
+      with:
+        source-directory: 'not-a-bypass-nightly.deb'
+        destination-github-username: 'Uckermark'
+        destination-repository-name: 'uckermark.github.io'
+        user-email: git@uckermark.tk
+        target-branch: main
