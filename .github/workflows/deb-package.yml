@@ -10,8 +10,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: download ipa
-      run: wget https://nightly.link/Uckermark/not-a-bypass/workflows/main/main/not-a-bypass.zip?h=f0629a50cb35e5d42891f511bc0fec0188e28ae4
-        unzip not-a-bypass.zip?h=f0629a50cb35e5d42891f511bc0fec0188e28ae4
+      run: |
+       wget https://nightly.link/Uckermark/not-a-bypass/workflows/main/main/not-a-bypass.zip?h=f0629a50cb35e5d42891f511bc0fec0188e28ae4
+       unzip not-a-bypass.zip?h=f0629a50cb35e5d42891f511bc0fec0188e28ae4
     - name: pack deb package
       run: ./build_nightly_deb.sh
     - name: Upload artifact
