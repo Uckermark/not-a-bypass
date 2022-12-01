@@ -1,0 +1,11 @@
+Package: com.uckermark.not-a-bypass
+Architecture: iphoneos-arm
+Maintainer: Uckermark
+Pre-Depends: coreutils-bin, dpkg (>=1.17.11)
+Depends: firmware (>=15.0), cy+cpu.arm64, com.ex.substitute (>= 2.3.1)
+Section: Tweaks
+Priority: optional
+Description: Simple jailbreak detection bypass
+Author: Uckermark
+Name: Not a bypass
+Version: 1.0
