@@ -30,3 +30,4 @@ package:
 	@mkdir -p packages
 
 	@zip -r9 "packages/Not a bypass.ipa" Payload
+	@rm -rf Payload

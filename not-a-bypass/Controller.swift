@@ -2,7 +2,7 @@
 //  Controller.swift
 //  not-a-bypass
 //
-//  Created by Leonard Lausen on 26.11.22.
+//  Created by Uckermark on 26.11.22.
 //
 
 import Foundation
@@ -10,7 +10,7 @@ import Foundation
 class Controller: ObservableObject {
     @Published var isWorking = false
     @Published var log = ""
-    
+    @Published var respring = false
     func installDummy() {
         guard let dummy = Bundle.main.path(forResource: "substitute-dummy", ofType: ".deb") else {
             addToLog(msg: "Could not find dummy deb")
@@ -19,9 +19,10 @@ class Controller: ObservableObject {
         isWorking = true
         DispatchQueue.global(qos: .utility).async {
             let ret = spawn(command: "/usr/bin/dpkg", args: ["-i", dummy], root: true)
-            spawn(command: "/usr/bin/sbreload", args: [], root: true)
             DispatchQueue.main.async {
                 self.addToLog(msg: ret.1)
+                self.respring = true
+                self.isWorking = false
             }
         }
     }
@@ -34,9 +35,10 @@ class Controller: ObservableObject {
         isWorking = true
         DispatchQueue.global(qos: .utility).async {
             let ret = spawn(command: "/usr/bin/dpkg", args: ["-i", substitute], root: true)
-            spawn(command: "/usr/bin/sbreload", args: [], root: true)
             DispatchQueue.main.async {
                 self.addToLog(msg: ret.1)
+                self.respring = true
+                self.isWorking = false
             }
         }
     }
