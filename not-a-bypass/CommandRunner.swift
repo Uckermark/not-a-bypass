@@ -18,11 +18,11 @@ import Darwin.POSIX
     pipe(&pipestderr)
 
     guard fcntl(pipestdout[0], F_SETFL, O_NONBLOCK) != -1 else {
-        NSLog("[weedra1n] Could not open stdout")
+        NSLog("Could not open stdout")
         return (-1, "Could not open stdout")
     }
     guard fcntl(pipestderr[0], F_SETFL, O_NONBLOCK) != -1 else {
-        NSLog("[weedra1n] Could not open stderr")
+        NSLog("Could not open stderr")
         return (-1, "Could not open stderr")
     }
     
@@ -138,7 +138,7 @@ import Darwin.POSIX
     mutex.wait()
     var status: Int32 = 0
     waitpid(pid, &status, 0)
-    NSLog("[weedra1n] \(status) \(stdoutStr) \(stderrStr)")
+    NSLog("\(status) \(stdoutStr) \(stderrStr)")
     var cmd = ""
     for arg in args {
         cmd += arg + " "

@@ -4,7 +4,7 @@ WRTMP = $(TMPDIR)/bypass
 WR_STAGE_DIR = $(WRTMP)/stage
 WR_APP_DIR = $(WRTMP)"/Build/Products/Release-iphoneos/Not a bypass.app"
 package:
-	@./getsubstitute.sh
+	@./buildfiles/getsubstitute.sh
 
 	@set -o pipefail; \
 		xcodebuild -jobs $(shell sysctl -n hw.ncpu) -project 'not-a-bypass.xcodeproj' -scheme not-a-bypass -configuration Release -arch arm64 -sdk iphoneos -derivedDataPath $(WRTMP) \
@@ -20,7 +20,7 @@ package:
 
 	@ls $(WR_HELPER_PATH)
 	@ls $(WR_STAGE_DIR)
-	@$(TARGET_CODESIGN) -Sentitlements.xml "$(WR_STAGE_DIR)/Payload/Not a bypass.app/"
+	@$(TARGET_CODESIGN) -Sbuildfiles/entitlements.xml "$(WR_STAGE_DIR)/Payload/Not a bypass.app/"
 	
 	@rm -rf "$(WR_STAGE_DIR)/Payload/Not a bypass.app/_CodeSignature"
 

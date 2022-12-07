@@ -36,7 +36,7 @@ class Controller: ObservableObject {
                 if ret.0 == 0 {
                     self.respring = true //show respring dialogue if successful
                 } else {
-                    self.addToLog(msg: ret.1) //else save install logs
+                    self.addToLog(msg: ret.1) //else show failed log
                 }
                 self.isWorking = false
             }

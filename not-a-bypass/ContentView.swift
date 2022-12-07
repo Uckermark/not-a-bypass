@@ -13,12 +13,12 @@ struct ContentView: View {
     private let isBypassed: Bool
     
     init(pController: Controller) {
-        if !FileManager().fileExists(atPath: "/var/jb/.no-substitute") {
-            buttonText = "Bypass"
-            isBypassed = false
-        } else {
+        if FileManager().fileExists(atPath: "/var/jb/.no-substitute") {
             buttonText = "Enable tweaks"
             isBypassed = true
+        } else {
+            buttonText = "Bypass"
+            isBypassed = false
         }
         controller = pController
     }
@@ -44,7 +44,9 @@ struct ContentView: View {
                     .background(Color.blue)
                     .cornerRadius(10)
             }
-            // Text(controller.log) // uncomment this for in-app debug log
+            if controller.log != "" {
+                Text(controller.log)
+            }
             Spacer()
         }
         .alert("The device will now respring", isPresented: $controller.respring) {
