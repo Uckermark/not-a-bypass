@@ -9,6 +9,19 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var controller: Controller
+    let buttonText: String
+    private let isBypassed: Bool
+    
+    init(pController: Controller) {
+        if !FileManager().fileExists(atPath: "/var/jb/.no-substitute") {
+            buttonText = "Bypass"
+            isBypassed = false
+        } else {
+            buttonText = "Enable tweaks"
+            isBypassed = true
+        }
+        controller = pController
+    }
     
     var body: some View {
         VStack {
@@ -25,27 +38,18 @@ struct ContentView: View {
                     .cornerRadius(10)
                     .disabled(true)
             } else if !FileManager().fileExists(atPath: "/var/jb/.no-substitute") {
-                Button("bypass", action: controller.installDummy)
-                    .padding()
-                    .foregroundColor(.white)
-                    .background(Color.blue)
-                    .cornerRadius(10)
-            } else {
-                Button("un-bypass", action: controller.installSubstitute)
+                Button(buttonText, action: { controller.install(bypass: isBypassed) } )
                     .padding()
                     .foregroundColor(.white)
                     .background(Color.blue)
                     .cornerRadius(10)
             }
-            //Text(controller.log)
+            // Text(controller.log) // uncomment this for in-app debug log
             Spacer()
         }
-        .alert("Respring to apply", isPresented: $controller.respring) {
-            Button("Now") {
+        .alert("The device will now respring", isPresented: $controller.respring) {
+            Button("OK", role: .cancel) {
                 spawn(command: "/usr/bin/sbreload", args: [], root: true)
-            }
-            Button("Later") {
-                controller.respring = false
             }
         }
     }

@@ -11,33 +11,33 @@ class Controller: ObservableObject {
     @Published var isWorking = false
     @Published var log = ""
     @Published var respring = false
-    func installDummy() {
-        guard let dummy = Bundle.main.path(forResource: "substitute-dummy", ofType: ".deb") else {
-            addToLog(msg: "Could not find dummy deb")
-            return
-        }
-        isWorking = true
-        DispatchQueue.global(qos: .utility).async {
-            let ret = spawn(command: "/usr/bin/dpkg", args: ["-i", dummy], root: true)
-            DispatchQueue.main.async {
-                self.addToLog(msg: ret.1)
-                self.respring = true
-                self.isWorking = false
-            }
-        }
-    }
     
-    func installSubstitute() {
-        guard let substitute = Bundle.main.path(forResource: "substitute", ofType: ".deb") else {
-            addToLog(msg: "Could not find dummy deb")
+    func install(bypass: Bool) {
+        //get .debs
+        guard let dummy = Bundle.main.path(forResource: "substitute-dummy", ofType: ".deb"),
+            let substitute = Bundle.main.path(forResource: "substitute", ofType: ".deb") else {
+            addToLog(msg: "Could not find debs")
             return
         }
         isWorking = true
+        
+        //check if we want to bypass or reinstall substitute
+        let deb: String
+        if bypass {
+            deb = dummy
+        } else {
+            deb = substitute
+        }
+        
+        //install selected deb
         DispatchQueue.global(qos: .utility).async {
-            let ret = spawn(command: "/usr/bin/dpkg", args: ["-i", substitute], root: true)
+            let ret = spawn(command: "/usr/bin/dpkg", args: ["-i", deb], root: true) //install deb
             DispatchQueue.main.async {
-                self.addToLog(msg: ret.1)
-                self.respring = true
+                if ret.0 == 0 {
+                    self.respring = true //show respring dialogue if successful
+                } else {
+                    self.addToLog(msg: ret.1) //else save install logs
+                }
                 self.isWorking = false
             }
         }
