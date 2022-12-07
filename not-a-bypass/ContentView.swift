@@ -38,7 +38,7 @@ struct ContentView: View {
                     .cornerRadius(10)
                     .disabled(true)
             } else if !FileManager().fileExists(atPath: "/var/jb/.no-substitute") {
-                Button(buttonText, action: { controller.install(bypass: isBypassed) } )
+                Button(buttonText, action: { controller.install(bypass: !isBypassed) } )
                     .padding()
                     .foregroundColor(.white)
                     .background(Color.blue)
