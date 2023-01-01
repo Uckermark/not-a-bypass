@@ -1,4 +1,3 @@
-cd ..
 mkdir not-a-bypass-nightly not-a-bypass-nightly/DEBIAN not-a-bypass-nightly/Applications
 cp buildfiles/control-nightly not-a-bypass-nightly/DEBIAN/control
 cp -r 'Payload/Not a bypass.app/' 'not-a-bypass-nightly/Applications/Not a bypass.app'
