@@ -13,7 +13,7 @@ struct ContentView: View {
     private let isBypassed: Bool
     
     init(pController: Controller) {
-        if FileManager().fileExists(atPath: "/var/jb/.no-substitute") {
+        if FileManager().fileExists(atPath: "/.no-substitute") {
             buttonText = "Enable tweaks"
             isBypassed = true
         } else {
