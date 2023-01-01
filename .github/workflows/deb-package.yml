@@ -15,7 +15,7 @@ jobs:
        unzip not-a-bypass.zip
        unzip 'Not a bypass.ipa'
     - name: pack deb package
-      run: ./build_nightly_deb.sh
+      run: ./buildfiles/build_nightly_deb.sh
     - name: Upload deb
       uses: actions/upload-artifact@v3
       with:
