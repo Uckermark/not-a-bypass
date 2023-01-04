@@ -43,6 +43,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A6B78D92965E317005A1888 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0A9317612932BF08002B3AF8 /* ContentView.swift */,
+				0A6B78D52965AB3B005A1888 /* BypassView.swift */,
+				0A6B78D72965AC3C005A1888 /* UnsupportedView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0A6B78DA2965E349005A1888 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				0A93176D2932BFE9002B3AF8 /* Controller.swift */,
+				0A93176F2932C083002B3AF8 /* CommandRunner.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		0A9317532932BF08002B3AF8 = {
 			isa = PBXGroup;
 			children = (
@@ -63,12 +82,9 @@
 			isa = PBXGroup;
 			children = (
 				0A9317722932C355002B3AF8 /* Required */,
+				0A6B78DA2965E349005A1888 /* Utility */,
+				0A6B78D92965E317005A1888 /* Views */,
 				0A93175F2932BF08002B3AF8 /* not_a_bypassApp.swift */,
-				0A9317612932BF08002B3AF8 /* ContentView.swift */,
-				0A6B78D52965AB3B005A1888 /* BypassView.swift */,
-				0A6B78D72965AC3C005A1888 /* UnsupportedView.swift */,
-				0A93176D2932BFE9002B3AF8 /* Controller.swift */,
-				0A93176F2932C083002B3AF8 /* CommandRunner.swift */,
 				0A9317712932C09A002B3AF8 /* not-a-bypass-BridgingHeader.h */,
 				0A9317632932BF0E002B3AF8 /* Assets.xcassets */,
 			);
