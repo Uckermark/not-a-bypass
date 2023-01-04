@@ -47,6 +47,8 @@ struct BypassView: View {
                 Text(controller.log)
             }
             Spacer()
+            Text("by Uckermark\nDiscord: RichardausderUckermark#9083\nTwitter: @uckerm4rk")
+                .multilineTextAlignment(.center)
         }
         .alert("The device will now respring", isPresented: $controller.respring) {
             Button("OK", role: .cancel) {
