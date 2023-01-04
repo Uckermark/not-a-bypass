@@ -47,3 +47,21 @@ class Controller: ObservableObject {
         log = log + "\n" + msg
     }
 }
+
+public enum Jailbreak {
+    case palera1n_root
+    case palera1n_rootless
+    case unknown
+}
+
+//checks for various files which indicate the installed jb
+public func getJB() -> Jailbreak {
+    let fm = FileManager()
+    if fm.fileExists(atPath: "/.palecursus_strapped") {
+        return .palera1n_root
+    } else if fm.fileExists(atPath: "/var/jb/.procursus_strapped") {
+        return .palera1n_rootless
+    } else {
+        return .unknown
+    }
+}
