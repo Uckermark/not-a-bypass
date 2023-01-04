@@ -8,13 +8,27 @@
 import SwiftUI
 
 struct UnsupportedView: View {
+    @State var alert = true
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct UnsupportedView_Previews: PreviewProvider {
-    static var previews: some View {
-        UnsupportedView()
+        VStack {
+            Text("Not a bypass™")
+                .padding()
+                .font(.headline)
+                .multilineTextAlignment(.center)
+            Spacer()
+            Button("Unsupported") {}
+                .padding()
+                .foregroundColor(.white)
+                .background(Color(red: 0, green: 0.235, blue: 0.49))
+                .cornerRadius(10)
+                .disabled(true)
+            Spacer()
+            Text("Your device is currently unsupported\nYou can contact me to add support\nDiscord: RichardausderUckermark#9083\nTwitter: @uckerm4rk")
+                .multilineTextAlignment(.center)
+        }
+        .alert("The device is not supported", isPresented: $alert) {
+            Button("OK", role: .cancel) {}
+        }
     }
 }
