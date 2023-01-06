@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var controller: Controller
-    private let jailbreak: Jailbreak
+    private let jailbreak: (Tweak_injection, Int, Bool)
     
     init(pController: Controller) {
         controller = pController
@@ -17,10 +17,16 @@ struct ContentView: View {
     }
     
     var body: some View {
-        if getJB() == .palera1n_root {
-            BypassView(pController: controller)
+        if jailbreak.2 == true {
+            UnsupportedView(reason: "Rootless jailbreaks are not supported.")
+        } else if jailbreak.1 < 14 {
+            UnsupportedView(reason: "Devices below iOS 14 are supported.")
+        } else if jailbreak.0 == .substrate {
+            UnsupportedView(reason: "Cydia substrate based jailbreaks are not and will never be supported.")
+        } else if jailbreak.0 != .substitute {
+            UnsupportedView(reason: "Only substitute based jailbreaks are supported, but Libhooker and Ellekit support will be added.")
         } else {
-            UnsupportedView()
+            BypassView(pController: controller)
         }
     }
 }

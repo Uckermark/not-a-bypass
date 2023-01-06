@@ -143,5 +143,5 @@ import Darwin.POSIX
     for arg in args {
         cmd += arg + " "
     }
-    return (Int(status), "\(cmd)\nexit \(status)\n\(stderrStr)\(stdoutStr)")
+    return (Int(status), "\(stderrStr)\(stdoutStr)")
 }

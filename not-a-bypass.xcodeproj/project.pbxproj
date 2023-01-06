@@ -16,6 +16,7 @@
 		0A9317702932C083002B3AF8 /* CommandRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A93176F2932C083002B3AF8 /* CommandRunner.swift */; };
 		0A9317752932C384002B3AF8 /* substitute-dummy.deb in Resources */ = {isa = PBXBuildFile; fileRef = 0A9317732932C36A002B3AF8 /* substitute-dummy.deb */; };
 		0A9317782932C7D5002B3AF8 /* substitute.deb in Resources */ = {isa = PBXBuildFile; fileRef = 0A9317762932C7CB002B3AF8 /* substitute.deb */; };
+		0AED52652968B0A400E02DB4 /* System.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AED52642968B0A400E02DB4 /* System.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		0A9317712932C09A002B3AF8 /* not-a-bypass-BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "not-a-bypass-BridgingHeader.h"; sourceTree = "<group>"; };
 		0A9317732932C36A002B3AF8 /* substitute-dummy.deb */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "substitute-dummy.deb"; sourceTree = "<group>"; };
 		0A9317762932C7CB002B3AF8 /* substitute.deb */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = substitute.deb; sourceTree = "<group>"; };
+		0AED52642968B0A400E02DB4 /* System.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = System.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +58,9 @@
 		0A6B78DA2965E349005A1888 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				0A93176D2932BFE9002B3AF8 /* Controller.swift */,
 				0A93176F2932C083002B3AF8 /* CommandRunner.swift */,
+				0A93176D2932BFE9002B3AF8 /* Controller.swift */,
+				0AED52642968B0A400E02DB4 /* System.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -172,6 +175,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A6B78D82965AC3C005A1888 /* UnsupportedView.swift in Sources */,
+				0AED52652968B0A400E02DB4 /* System.swift in Sources */,
 				0A6B78D62965AB3B005A1888 /* BypassView.swift in Sources */,
 				0A93176E2932BFE9002B3AF8 /* Controller.swift in Sources */,
 				0A9317622932BF08002B3AF8 /* ContentView.swift in Sources */,

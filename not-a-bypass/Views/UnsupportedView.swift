@@ -9,6 +9,7 @@ import SwiftUI
 
 struct UnsupportedView: View {
     @State var alert = true
+    @State var reason = ""
     
     var body: some View {
         VStack {
@@ -24,8 +25,13 @@ struct UnsupportedView: View {
                 .cornerRadius(10)
                 .disabled(true)
             Spacer()
-            Text("Your device is currently unsupported\nYou can contact me to add support\nDiscord: RichardausderUckermark#9083\nTwitter: @uckerm4rk")
-                .multilineTextAlignment(.center)
+            if reason == "" {
+                Text("Your device is currently unsupported\nYou can contact me to add support")
+                    .multilineTextAlignment(.center)
+            } else {
+                Text(reason)
+            }
+            Text("Discord: RichardausderUckermark#9083\nTwitter: @uckerm4rk")
         }
         .alert("The device is not supported", isPresented: $alert) {
             Button("OK", role: .cancel) {}
