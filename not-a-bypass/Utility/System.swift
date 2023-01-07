@@ -17,17 +17,17 @@ public enum Tweak_injection {
 }
 
 //checks for various files which indicate the installed jb
-public func getJB() -> (Tweak_injection, Int, Bool) {
+public func getDeviceInfo() -> (Tweak_injection, Int, Bool) {
     let ios_version = ProcessInfo.processInfo.operatingSystemVersion.majorVersion
     var tweak_injection: Tweak_injection = .unknown
     if FileManager().fileExists(atPath: "/var/jb") {
-        return (.unknown, ios_version, true)
+        return (tweak_injection, ios_version, true)
     }
     
     let substitute = spawn(command: "/usr/bin/dpkg-query", args: ["-s", "com.ex.substitute"], root: true).1
     let libhooker = spawn(command: "/usr/bin/dpkg-query", args: ["-s", "org.coolstar.libhooker"], root: true).1
     let substrate = spawn(command: "/usr/bin/dpkg-query", args: ["-s", "mobilesubstrate"], root: true).1
-    let ellekit = spawn(command: "/usr/bin/dpkg-query", args: ["-s", " insert ellekit id"], root: true).1
+    let ellekit = spawn(command: "/usr/bin/dpkg-query", args: ["-s", "ellekit"], root: true).1
     
     if substitute.contains("installed") {
         tweak_injection = .substitute
@@ -39,4 +39,27 @@ public func getJB() -> (Tweak_injection, Int, Bool) {
         tweak_injection = .ellekit
     }
     return (tweak_injection, ios_version, false)
+}
+
+public func getInfoString() -> String {
+    let data = getDeviceInfo()
+    var infoString = ""
+    switch data.0 {
+    case .substrate:
+        infoString.append("Substrate")
+    case .substitute:
+        infoString.append("Substitute")
+    case .ellekit:
+        infoString.append("Ellekit")
+    case .libhooker:
+        infoString.append("Libhooker")
+    case .unknown:
+        infoString.append("Unknown")
+    }
+    infoString.append(" on iOS \(data.1)")
+    if data.2 {
+        infoString.append(" rootless")
+    }
+    infoString.append("")
+    return infoString
 }

@@ -11,7 +11,7 @@ struct BypassView: View {
     @ObservedObject private var controller: Controller
     let buttonText: String
     private let isBypassed: Bool
-    private let jailbreak: String
+    private let deviceInfo: String
     
     init(pController: Controller, device: String) {
         if FileManager().fileExists(atPath: "/.no-substitute") {
@@ -22,7 +22,7 @@ struct BypassView: View {
             isBypassed = false
         }
         controller = pController
-        jailbreak = device
+        deviceInfo = device
     }
     var body: some View {
         VStack {
@@ -49,13 +49,17 @@ struct BypassView: View {
                 Text(controller.log)
             }
             Spacer()
+            Text(deviceInfo)
             Text("by Uckermark\nDiscord: RichardausderUckermark#9083\nTwitter: @uckerm4rk")
                 .multilineTextAlignment(.center)
         }
-        .alert("The device will now respring", isPresented: $controller.respring) {
-            Button("OK", role: .cancel) {
-                spawn(command: "/usr/bin/sbreload", args: [], root: true)
-            }
+        .alert(isPresented: $controller.respring) {
+            Alert(
+                title: Text("The device will now respring"),
+                dismissButton: .cancel(Text("OK"), action: {
+                    spawn(command: "/usr/bin/sbreload", args: [], root: true)
+                })
+            )
         }
     }
 }
