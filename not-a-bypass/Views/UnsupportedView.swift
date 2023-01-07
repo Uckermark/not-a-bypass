@@ -26,13 +26,13 @@ struct UnsupportedView: View {
                 .cornerRadius(10)
                 .disabled(true)
             Spacer()
-            Text(reason)
-            Text(device + "\n")
-            Text("Discord: RichardausderUckermark#9083\nTwitter: @uckerm4rk")
+            Text(reason + "\n" + device + "\n\nGet support:\nDiscord: RichardausderUckermark#9083\nTwitter: @uckerm4rk")
+                .multilineTextAlignment(.center)
         }
         .alert(isPresented: $alert) {
             Alert(
                 title: Text("This device is unsupported"),
+                message: Text(reason),
                 dismissButton: .cancel(Text("OK"))
             )
         }
