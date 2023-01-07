@@ -11,8 +11,9 @@ struct BypassView: View {
     @ObservedObject private var controller: Controller
     let buttonText: String
     private let isBypassed: Bool
+    private let jailbreak: String
     
-    init(pController: Controller) {
+    init(pController: Controller, device: String) {
         if FileManager().fileExists(atPath: "/.no-substitute") {
             buttonText = "Enable tweaks"
             isBypassed = true
@@ -21,6 +22,7 @@ struct BypassView: View {
             isBypassed = false
         }
         controller = pController
+        jailbreak = device
     }
     var body: some View {
         VStack {

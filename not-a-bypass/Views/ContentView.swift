@@ -18,15 +18,15 @@ struct ContentView: View {
     
     var body: some View {
         if jailbreak.2 == true {
-            UnsupportedView(reason: "Rootless jailbreaks are not supported.")
+            UnsupportedView(reason: "Rootless jailbreaks are not supported.", device: "\(jailbreak)")
         } else if jailbreak.1 < 14 {
-            UnsupportedView(reason: "Devices below iOS 14 are supported.")
+            UnsupportedView(reason: "Devices below iOS 14 are supported.", device: "\(jailbreak)")
         } else if jailbreak.0 == .substrate {
-            UnsupportedView(reason: "Cydia substrate based jailbreaks are not and will never be supported.")
+            UnsupportedView(reason: "Cydia substrate based jailbreaks are not and will never be supported.", device: "\(jailbreak)")
         } else if jailbreak.0 != .substitute {
-            UnsupportedView(reason: "Only substitute based jailbreaks are supported, but Libhooker and Ellekit support will be added.")
+            UnsupportedView(reason: "Only substitute based jailbreaks are supported, but Libhooker and Ellekit support will be added.", device: "\(jailbreak)")
         } else {
-            BypassView(pController: controller)
+            BypassView(pController: controller, device: "\(jailbreak)")
         }
     }
 }

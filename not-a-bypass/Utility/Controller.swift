@@ -31,6 +31,7 @@ class Controller: ObservableObject {
         
         //install selected deb
         DispatchQueue.global(qos: .utility).async {
+            spawn(command: "/usr/bin/rm", args: ["-f", "/.no-substitute"], root: true)
             let ret = spawn(command: "/usr/bin/dpkg", args: ["-i", deb], root: true) //install deb
             DispatchQueue.main.async {
                 if ret.0 == 0 {
@@ -38,7 +39,6 @@ class Controller: ObservableObject {
                 } else {
                     self.addToLog(msg: ret.1) //else show failed log
                 }
-                self.isWorking = false
             }
         }
     }

@@ -2,7 +2,7 @@ Package: com.uckermark.not-a-bypass
 Architecture: iphoneos-arm
 Maintainer: Uckermark
 Pre-Depends: coreutils-bin, dpkg (>=1.17.11)
-Depends: firmware (>=15.0), com.ex.substitute (>= 2.3.1)
+Depends: firmware (>=13.0), com.ex.substitute (>= 2.0)
 Section: Tweaks
 Priority: optional
 Description: Global jailbreak detection bypass

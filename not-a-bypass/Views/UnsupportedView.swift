@@ -10,6 +10,7 @@ import SwiftUI
 struct UnsupportedView: View {
     @State var alert = true
     @State var reason = ""
+    @State var device = ""
     
     var body: some View {
         VStack {
@@ -31,6 +32,7 @@ struct UnsupportedView: View {
             } else {
                 Text(reason)
             }
+            Text(device + "\n")
             Text("Discord: RichardausderUckermark#9083\nTwitter: @uckerm4rk")
         }
         .alert("The device is not supported", isPresented: $alert) {
