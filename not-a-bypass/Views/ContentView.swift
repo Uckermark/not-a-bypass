@@ -12,8 +12,8 @@ struct ContentView: View {
     private let deviceInfo: (Tweak_injection, Int, Bool)
     private let infoString: String
     
-    init(pController: Controller) {
-        controller = pController
+    init() {
+        controller = Controller()
         deviceInfo = getDeviceInfo()
         infoString = getInfoString()
     }

@@ -11,7 +11,7 @@ import SwiftUI
 struct Not_a_bypass: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(pController: Controller())
+            ContentView()
         }
     }
 }
