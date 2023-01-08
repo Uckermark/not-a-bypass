@@ -48,13 +48,11 @@ struct BypassView: View {
                 Text(controller.log + "\nPlease send me a screenshot of the error message")
             }
             Spacer()
-            if FileManager().fileExists(atPath: "/.nab-debug") {
-                Text(deviceInfo)
-                    .font(.system(size: 11.0))
-            }
             Text("by Uckermark\nDiscord: RichardausderUckermark#9083\nTwitter: @uckerm4rk")
                 .font(.system(size: 11.0))
                 .multilineTextAlignment(.center)
+            Text(deviceInfo)
+                .font(.system(size: 11.0))
         }
         .alert(isPresented: $controller.respring) {
             Alert(
