@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+
+/usr/bin/uicache -p /Applications/not-a-bypass.app/

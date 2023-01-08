@@ -27,6 +27,7 @@ struct UnsupportedView: View {
                 .disabled(true)
             Spacer()
             Text(reason + "\n" + device + "\n\nGet support:\nDiscord: RichardausderUckermark#9083\nTwitter: @uckerm4rk")
+                .font(.system(size: 14.0))
                 .multilineTextAlignment(.center)
         }
         .alert(isPresented: $alert) {

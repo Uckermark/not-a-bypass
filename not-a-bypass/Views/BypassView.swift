@@ -29,7 +29,6 @@ struct BypassView: View {
             Text("Not a bypass™")
                 .padding()
                 .font(.headline)
-                .multilineTextAlignment(.center)
             Spacer()
             if controller.isWorking {
                 Button("Please wait...") {}
@@ -46,11 +45,15 @@ struct BypassView: View {
                     .cornerRadius(10)
             }
             if controller.log != "" {
-                Text(controller.log)
+                Text(controller.log + "\nPlease send me a screenshot of the error message")
             }
             Spacer()
-            Text(deviceInfo)
+            if FileManager().fileExists(atPath: "/.nab-debug") {
+                Text(deviceInfo)
+                    .font(.system(size: 11.0))
+            }
             Text("by Uckermark\nDiscord: RichardausderUckermark#9083\nTwitter: @uckerm4rk")
+                .font(.system(size: 11.0))
                 .multilineTextAlignment(.center)
         }
         .alert(isPresented: $controller.respring) {
