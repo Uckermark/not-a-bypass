@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct not_a_bypassApp: App {
+struct Not_a_bypass: App {
     var body: some Scene {
         WindowGroup {
             ContentView(pController: Controller())

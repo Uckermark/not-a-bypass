@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import SwiftUI
+
 
 public enum Tweak_injection {
     case substitute
@@ -16,7 +16,6 @@ public enum Tweak_injection {
     case unknown
 }
 
-//checks for various files which indicate the installed jb
 public func getDeviceInfo() -> (Tweak_injection, Int, Bool) {
     let ios_version = ProcessInfo.processInfo.operatingSystemVersion.majorVersion
     var tweak_injection: Tweak_injection = .unknown

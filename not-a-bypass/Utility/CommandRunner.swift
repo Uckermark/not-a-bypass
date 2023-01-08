@@ -138,7 +138,6 @@ import Darwin.POSIX
     mutex.wait()
     var status: Int32 = 0
     waitpid(pid, &status, 0)
-    NSLog("\(status) \(stdoutStr) \(stderrStr)")
     var cmd = ""
     for arg in args {
         cmd += arg + " "

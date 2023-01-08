@@ -55,8 +55,9 @@ struct BypassView: View {
         }
         .alert(isPresented: $controller.respring) {
             Alert(
-                title: Text("The device will now respring"),
-                dismissButton: .cancel(Text("OK"), action: {
+                title: Text("Respring device?"),
+                primaryButton: .destructive(Text("No")),
+                secondaryButton: .default(Text("Yes"), action: {
                     spawn(command: "/usr/bin/sbreload", args: [], root: true)
                 })
             )

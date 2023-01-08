@@ -9,21 +9,21 @@
 /* Begin PBXBuildFile section */
 		0A6B78D62965AB3B005A1888 /* BypassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B78D52965AB3B005A1888 /* BypassView.swift */; };
 		0A6B78D82965AC3C005A1888 /* UnsupportedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6B78D72965AC3C005A1888 /* UnsupportedView.swift */; };
-		0A9317602932BF08002B3AF8 /* not_a_bypassApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A93175F2932BF08002B3AF8 /* not_a_bypassApp.swift */; };
+		0A9317602932BF08002B3AF8 /* not-a-bypass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A93175F2932BF08002B3AF8 /* not-a-bypass.swift */; };
 		0A9317622932BF08002B3AF8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9317612932BF08002B3AF8 /* ContentView.swift */; };
 		0A9317642932BF0E002B3AF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A9317632932BF0E002B3AF8 /* Assets.xcassets */; };
 		0A93176E2932BFE9002B3AF8 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A93176D2932BFE9002B3AF8 /* Controller.swift */; };
 		0A9317702932C083002B3AF8 /* CommandRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A93176F2932C083002B3AF8 /* CommandRunner.swift */; };
 		0A9317752932C384002B3AF8 /* substitute-dummy.deb in Resources */ = {isa = PBXBuildFile; fileRef = 0A9317732932C36A002B3AF8 /* substitute-dummy.deb */; };
 		0A9317782932C7D5002B3AF8 /* substitute.deb in Resources */ = {isa = PBXBuildFile; fileRef = 0A9317762932C7CB002B3AF8 /* substitute.deb */; };
-		0AED52652968B0A400E02DB4 /* System.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AED52642968B0A400E02DB4 /* System.swift */; };
+		0AED5266296ADBA100E02DB4 /* System.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AED52642968B0A400E02DB4 /* System.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0A6B78D52965AB3B005A1888 /* BypassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BypassView.swift; sourceTree = "<group>"; };
 		0A6B78D72965AC3C005A1888 /* UnsupportedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsupportedView.swift; sourceTree = "<group>"; };
 		0A93175C2932BF08002B3AF8 /* Not a bypass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Not a bypass.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0A93175F2932BF08002B3AF8 /* not_a_bypassApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = not_a_bypassApp.swift; sourceTree = "<group>"; };
+		0A93175F2932BF08002B3AF8 /* not-a-bypass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "not-a-bypass.swift"; sourceTree = "<group>"; };
 		0A9317612932BF08002B3AF8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0A9317632932BF0E002B3AF8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A93176D2932BFE9002B3AF8 /* Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
@@ -87,7 +87,7 @@
 				0A9317722932C355002B3AF8 /* Required */,
 				0A6B78DA2965E349005A1888 /* Utility */,
 				0A6B78D92965E317005A1888 /* Views */,
-				0A93175F2932BF08002B3AF8 /* not_a_bypassApp.swift */,
+				0A93175F2932BF08002B3AF8 /* not-a-bypass.swift */,
 				0A9317712932C09A002B3AF8 /* not-a-bypass-BridgingHeader.h */,
 				0A9317632932BF0E002B3AF8 /* Assets.xcassets */,
 			);
@@ -175,11 +175,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A6B78D82965AC3C005A1888 /* UnsupportedView.swift in Sources */,
-				0AED52652968B0A400E02DB4 /* System.swift in Sources */,
+				0AED5266296ADBA100E02DB4 /* System.swift in Sources */,
 				0A6B78D62965AB3B005A1888 /* BypassView.swift in Sources */,
 				0A93176E2932BFE9002B3AF8 /* Controller.swift in Sources */,
 				0A9317622932BF08002B3AF8 /* ContentView.swift in Sources */,
-				0A9317602932BF08002B3AF8 /* not_a_bypassApp.swift in Sources */,
+				0A9317602932BF08002B3AF8 /* not-a-bypass.swift in Sources */,
 				0A9317702932C083002B3AF8 /* CommandRunner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
