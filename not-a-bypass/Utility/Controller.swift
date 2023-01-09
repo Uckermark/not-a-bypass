@@ -33,6 +33,7 @@ class Controller: ObservableObject {
         DispatchQueue.global(qos: .utility).async {
             spawn(command: "/usr/bin/rm", args: ["-f", "/.no-substitute"], root: true)
             let ret = spawn(command: "/usr/bin/dpkg", args: ["-i", deb], root: true) //install deb
+            spawn(command: "/usr/bin/apt-mark", args: ["hold", "com.ex.substitute"], root: true)
             DispatchQueue.main.async {
                 if ret.0 == 0 {
                     self.respring = true //show respring dialogue if successful

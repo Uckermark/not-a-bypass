@@ -28,13 +28,13 @@ public func getDeviceInfo() -> (Tweak_injection, Int, Bool) {
     let substrate = spawn(command: "/usr/bin/dpkg-query", args: ["-s", "mobilesubstrate"], root: true).1
     let ellekit = spawn(command: "/usr/bin/dpkg-query", args: ["-s", "ellekit"], root: true).1
     
-    if substitute.contains("install ok installed") {
+    if substitute.contains("ok installed") {
         tweak_injection = .substitute
-    } else if libhooker.contains("install ok installed") && !libhooker.contains("libhooker-shim") {
+    } else if libhooker.contains("ok installed") && !libhooker.contains("libhooker-shim") {
         tweak_injection = .libhooker
-    } else if substrate.contains("install ok installed") {
+    } else if substrate.contains("ok installed") {
         tweak_injection = .substrate
-    } else if ellekit.contains("install ok installed") {
+    } else if ellekit.contains("ok installed") {
         tweak_injection = .ellekit
     }
     return (tweak_injection, ios_version, false)

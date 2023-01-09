@@ -94,6 +94,6 @@ fastlane/test_output
 iOSInjectionProject/
 
 packages/
-Payload
+Payload/
 *.deb
-debug/
+deploy.sh
