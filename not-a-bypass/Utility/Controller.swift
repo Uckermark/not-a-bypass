@@ -31,14 +31,15 @@ class Controller: ObservableObject {
         
         //install selected deb
         DispatchQueue.global(qos: .utility).async {
-            spawn(command: "/usr/bin/rm", args: ["-f", "/.no-substitute"], root: true)
-            let ret = spawn(command: "/usr/bin/dpkg", args: ["-i", deb], root: true) //install deb
-            spawn(command: "/usr/bin/apt-mark", args: ["hold", "com.ex.substitute"], root: true)
+            let ret0 = spawn(command: "/usr/bin/rm", args: ["-f", "/.no-substitute"], root: true)
+            let ret1 = spawn(command: "/usr/bin/dpkg", args: ["-i", deb], root: true) //install deb
+            let ret2 = spawn(command: "/usr/bin/apt-mark", args: ["hold", "com.ex.substitute"], root: true)
             DispatchQueue.main.async {
-                if ret.0 == 0 {
+                if ret1.0 == 0 {
                     self.respring = true //show respring dialogue if successful
+                    self.isWorking = false
                 } else {
-                    self.addToLog(msg: ret.1) //else show failed log
+                    self.addToLog(msg: ret0.1 + ret1.1 + ret2.1) //else show failed log
                 }
             }
         }

@@ -2,7 +2,7 @@
 //  UnsupportedView.swift
 //  not-a-bypass
 //
-//  Created by Leonard Lausen on 04.01.23.
+//  Created by Uckermark on 04.01.23.
 //
 
 import SwiftUI

@@ -60,7 +60,6 @@ import Darwin.POSIX
     var pid: pid_t = 0
     let spawnStatus = posix_spawn(&pid, command, &fileActions, &attr, argv + [nil], proenv + [nil])
     if spawnStatus != 0 {
-        NSLog("[weedra1n] Spawn Status = \(spawnStatus)")
         return (Int(spawnStatus), "Spawn Status = \(spawnStatus)")
     }
 
